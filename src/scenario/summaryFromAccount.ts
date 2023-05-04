@@ -3,17 +3,16 @@ import { openai } from "../openai"
 import emails from "../emails.json"
 import { ChatCompletionRequestMessage } from "openai"
 
-export const summaryFromThread = async (): Promise<ScenarioResult> => {
+export const summaryFromAccount = async (): Promise<ScenarioResult> => {
     let result = ''
 
     try {
         const messages = [
-            { "role": "user", "content": "I need to summarize an email conversation." },
-            { "role": "assistant", "content": "Sure, please provide me all the emails in the conversation." },
+            { "role": "user", "content": "I need to summarize an my email account based on the conversation." },
+            { "role": "assistant", "content": "Sure, please provide me all the emails related to your account." },
         ] as ChatCompletionRequestMessage[]
 
-        // Beacuse we have all emails in one file, we need to filter all emails from one conversation manually
-        emails.filter(email => email.from === 'helena.jason@carsmotors.com' || email.to === 'helena.jason@carsmotors.com').forEach(email => { 
+        emails.forEach(email => { 
             messages.push({ "role": "user", "content": `Message sent from ${email.from === 'ted.dillan@mcg.com' ? 'me' : email.from} to ${email.to === 'ted.dillan@mcg.com' ? 'me' : email.to}: ${email.body}` })
         })
 
@@ -32,5 +31,5 @@ export const summaryFromThread = async (): Promise<ScenarioResult> => {
         result = error.message
     }
 
-    return { name: 'Make a summary from thread', result }
+    return { name: 'Make a summary from account', result }
 } 

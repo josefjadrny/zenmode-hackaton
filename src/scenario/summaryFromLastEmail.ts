@@ -18,8 +18,7 @@ export const summaryFromLastEmail = async (): Promise<ScenarioResult> => {
         result = completion.data.choices[0].message.content
     } catch (error) {
         if (error.response) {
-            console.log(error.response.status);
-            console.log(error.response.data);
+            console.log(error.response);
         } else {
             console.log(error.message);
         }
