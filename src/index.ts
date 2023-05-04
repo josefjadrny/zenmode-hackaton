@@ -8,6 +8,7 @@ import { summaryFromAccount } from './scenario/summaryFromAccount'
 import { emailListCategorisation } from './scenario/emailsCategorisation'
 import { translateToLanguage } from './scenario/translateToLanguage'
 import { extractActionsDetails } from './scenario/extractActions'
+import { urgencyType } from './scenario/urgencyType'
 
 import emails from "./emails.json"
 import { rephrase } from './scenario/rephrase'
@@ -50,6 +51,10 @@ const scenarios = [
   {
     name: 'Extract suggested activities',
     exec: extractActionsDetails,
+  },
+  {
+    name: 'Prioritise this email by urgency',
+    exec: urgencyType,
   },
 ]
 
