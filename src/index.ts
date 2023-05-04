@@ -21,7 +21,7 @@ fastify.get('/', async (request, reply) => {
   reply.send(completion.data.choices[0].text)
 })
 
-fastify.listen({ port: Number(process.env.PORT) || 3030 }, (err, address) => {
+fastify.listen({ port: Number(process.env.PORT) || 8080 }, (err, address) => {
   if (err) throw err
 })
 
