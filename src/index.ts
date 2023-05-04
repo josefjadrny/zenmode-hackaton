@@ -6,6 +6,7 @@ import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
 import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
 import { emailListCategorisation } from './scenario/emailsCategorisation'
+import { translateToLanguage } from './scenario/translateToLanguage'
 
 import emails from "./emails.json"
 import { rephrase } from './scenario/rephrase'
@@ -40,6 +41,10 @@ const scenarios = [
   {
     name: 'Suggest an email category',
     exec: emailListCategorisation,
+  },
+  {
+    name: 'Translate to Czech language',
+    exec: translateToLanguage,
   },
 ]
 
