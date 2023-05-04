@@ -5,6 +5,7 @@ import Fastify from 'fastify'
 import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
 import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
+import { emailListCategorisation } from './scenario/emailsCategorisation'
 
 import emails from "./emails.json"
 import { rephrase } from './scenario/rephrase'
@@ -35,7 +36,11 @@ const scenarios = [
   {
     name: 'Suggest a label from thread',
     exec: suggestLabelFromThread,
-  }
+  },
+  {
+    name: 'Suggest an email category',
+    exec: emailListCategorisation,
+  },
 ]
 
 const fastify = Fastify({
