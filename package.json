@@ -1,0 +1,24 @@
+{
+  "name": "zenmode-hackaton",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "description": "",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josefjadrny/zenmode-hackaton.git"
+  },
+  "author": "bc.josefjadrny@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/josefjadrny/zenmode-hackaton#readme",
+  "dependencies": {
+    "fastify": "^4.17.0",
+    "openai": "^3.2.1",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
