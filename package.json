@@ -16,7 +16,8 @@
   "dependencies": {
     "fastify": "^4.17.0",
     "openai": "^3.2.1",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"
