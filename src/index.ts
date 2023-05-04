@@ -7,6 +7,7 @@ import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
 
 import emails from "./emails.json"
+import { rephrase } from './scenario/rephrase'
 
 
 
@@ -44,5 +45,6 @@ const getResults = async () => {
     summaryFromLastEmail(),
     summaryFromThread(),
     summaryFromAccount(),
+    rephrase(),
   ])
 }
