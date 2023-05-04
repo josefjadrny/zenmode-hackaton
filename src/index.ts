@@ -7,6 +7,7 @@ import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
 import { emailListCategorisation } from './scenario/emailsCategorisation'
 import { translateToLanguage } from './scenario/translateToLanguage'
+import { extractActionsDetails } from './scenario/extractActions'
 
 import emails from "./emails.json"
 import { rephrase } from './scenario/rephrase'
@@ -45,6 +46,10 @@ const scenarios = [
   {
     name: 'Translate to Czech language',
     exec: translateToLanguage,
+  },
+  {
+    name: 'Extract suggested activities',
+    exec: extractActionsDetails,
   },
 ]
 
