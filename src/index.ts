@@ -3,6 +3,7 @@ dotenv.config()
 
 import Fastify from 'fastify'
 import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
+import { summaryFromThread } from './scenario/summaryFromThread'
 import emails from "./emails.json"
 
 
@@ -16,7 +17,7 @@ export type ScenarioResult = {
 }
 
 fastify.get('/', async (request, reply) => {
-  const results = await Promise.all([summaryFromLastEmail()])
+  const results = await getResults()
 
   const html = `<!DOCTYPE html>
   <html>
@@ -34,3 +35,10 @@ fastify.get('/', async (request, reply) => {
 fastify.listen({ port: Number(process.env.PORT) || 8080 }, (err, address) => {
   if (err) throw err
 })
+
+const getResults = async () => {
+  return await Promise.all([
+    summaryFromLastEmail(),
+    summaryFromThread()
+  ])
+}
