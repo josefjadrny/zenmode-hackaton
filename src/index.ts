@@ -1,27 +1,28 @@
 import * as dotenv from 'dotenv'
-import { Configuration, OpenAIApi } from 'openai'
-import Fastify from 'fastify'
-
 dotenv.config()
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
-});
 
-const openai = new OpenAIApi(configuration);
+import Fastify from 'fastify'
+import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
 
 const fastify = Fastify({
   logger: true
 })
 
+
 fastify.get('/', async (request, reply) => {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: "Hello world",
-  });
-  reply.send(completion.data.choices[0].text)
+  const results = await Promise.all([summaryFromLastEmail()])
+  
+  const html = `<!DOCTYPE html>
+  <html>
+  <body>
+  <h1>ZEN-MODE playground</h1>
+  ${results.map((result) => '<h2>' + result.name + '</h2><p>' + result.result + '</p>')}
+  </body>
+  </html>`
+
+  reply.type('text/html').send(html)
 })
 
 fastify.listen({ port: Number(process.env.PORT) || 8080 }, (err, address) => {
   if (err) throw err
 })
-
