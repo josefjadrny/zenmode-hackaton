@@ -61,5 +61,11 @@
         "time": "2023-05-07,17:23:12",
         "subject": "Introduction and Offer to assist your Car Motors business",
         "body": "Hey Ted, thanks for reaching out to us, but at this time we are not interested in any kind of cooperation. Have a nice day."
+    },
+    {
+        "sender": "John Doe",
+        "subject": "Meeting Request",
+        "body": "Hi there, I'd like to schedule a meeting with you next week to discuss your company's needs. Please let me know if that works for you. Best regards, John Doe.",
+        "timestamp": "2023-04-30T13:00:00Z"
     }
 ]
