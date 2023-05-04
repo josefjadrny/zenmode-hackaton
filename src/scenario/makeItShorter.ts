@@ -1,16 +1,16 @@
 import { openai } from "../openai"
 import emails from "../emails.json"
 
-export const summaryFromLastEmail = async (): Promise<string> => {
+export const makeItShorter = async (): Promise<string> => {
     let result = ''
 
     try {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
-                { "role": "user", "content": "I need to summarize an email." },
+                { "role": "user", "content": "I need to shorten an email." },
                 { "role": "assistant", "content": "Sure, please provide me with the email." },
-                { "role": "user", "content": emails[6].body },
+                { "role": "user", "content": emails[0].body },
             ]
         })
 

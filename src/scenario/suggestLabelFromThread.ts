@@ -2,16 +2,18 @@ import { openai } from "../openai"
 import emails from "../emails.json"
 import { ChatCompletionRequestMessage } from "openai"
 
-export const summaryFromAccount = async (): Promise<string> => {
+export const suggestLabelFromThread = async (): Promise<string> => {
     let result = ''
 
     try {
         const messages = [
-            { "role": "user", "content": "I need to summarize an my email account based on the conversation." },
-            { "role": "assistant", "content": "Sure, please provide me all the emails related to your account." },
+            { "role": "user", "content": "I am looking for a one word label which would describe my email conversation." },
+            { "role": "user", "content": "Can you answer me in one world only." },
+            { "role": "assistant", "content": "Sure, please provide me all the emails in the conversation." },
         ] as ChatCompletionRequestMessage[]
 
-        emails.forEach(email => { 
+        // Beacuse we have all emails in one file, we need to filter all emails from one conversation manually
+        emails.filter(email => email.from === 'helena.jason@carsmotors.com' || email.to === 'helena.jason@carsmotors.com').forEach(email => { 
             messages.push({ "role": "user", "content": `Message sent from ${email.from === 'ted.dillan@mcg.com' ? 'me' : email.from} to ${email.to === 'ted.dillan@mcg.com' ? 'me' : email.to}: ${email.body}` })
         })
 

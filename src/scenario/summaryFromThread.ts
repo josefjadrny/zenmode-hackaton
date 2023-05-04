@@ -1,9 +1,8 @@
-import { ScenarioResult } from ".."
 import { openai } from "../openai"
 import emails from "../emails.json"
 import { ChatCompletionRequestMessage } from "openai"
 
-export const summaryFromThread = async (): Promise<ScenarioResult> => {
+export const summaryFromThread = async (): Promise<string> => {
     let result = ''
 
     try {
@@ -25,12 +24,13 @@ export const summaryFromThread = async (): Promise<ScenarioResult> => {
         result = completion.data.choices[0].message.content
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+            console.log(error.response.status);
+            console.log(error.response.data);
         } else {
             console.log(error.message);
         }
         result = error.message
     }
 
-    return { name: 'Make a summary from thread', result }
+    return result
 } 

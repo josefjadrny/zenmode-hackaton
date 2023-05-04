@@ -1,9 +1,7 @@
-import { ScenarioResult } from ".."
 import { openai } from "../openai"
 import emails from "../emails.json"
-import { ChatCompletionRequestMessage } from "openai"
 
-export const rephrase = async (): Promise<ScenarioResult> => {
+export const rephrase = async (): Promise<string> => {
     let result = ''
 
     try {
@@ -19,12 +17,13 @@ export const rephrase = async (): Promise<ScenarioResult> => {
         result = completion.data.choices[0].message.content
     } catch (error) {
         if (error.response) {
-            console.log(error.response);
+            console.log(error.response.status);
+            console.log(error.response.data);
         } else {
             console.log(error.message);
         }
         result = error.message
     }
 
-    return { name: 'Reprahse an email', result }
+    return result
 } 
