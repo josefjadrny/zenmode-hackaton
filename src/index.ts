@@ -69,7 +69,7 @@ fastify.get('/', async (request, reply) => {
   <h1>ZEN-MODE playground</h1>
   <h2>Emails</h2>
   <pre>${JSON.stringify(emails, null, 2)}</pre>
-  ${scenarios.map(scenario => '<h2>' + scenario.name + '</h2><p><button onClick="fetch(\'/execute?scenarioName='+scenario.name+'\').then(response => response.text()).then(text => {var div = document.getElementById(\''+scenario.name+'\');div.innerHTML = text;})")>Generate</button></p><p id="'+scenario.name+'"><p></p>')}
+  ${scenarios.map(scenario => '<h2>' + scenario.name + '</h2><p><button onClick="this.disabled=true;fetch(\'/execute?scenarioName='+scenario.name+'\').then(response => response.text()).then(text => {var div = document.getElementById(\''+scenario.name+'\');div.innerHTML = text;this.disabled=false;})")>Generate</button></p><p id="'+scenario.name+'"><p></p>')}
   </body>
   </html>`
 
