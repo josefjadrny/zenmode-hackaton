@@ -7,7 +7,7 @@ export const summaryFromThread = async (): Promise<string> => {
 
     try {
         const messages = [
-            { "role": "user", "content": "I need to summarize an email conversation." },
+            { "role": "user", "content": "I am a salesperson and I need to summarize an email conversation into one sentence." },
             { "role": "assistant", "content": "Sure, please provide me all the emails in the conversation." },
         ] as ChatCompletionRequestMessage[]
 

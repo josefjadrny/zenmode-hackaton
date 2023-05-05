@@ -7,9 +7,8 @@ export const suggestLabelFromThread = async (): Promise<string> => {
 
     try {
         const messages = [
-            { "role": "user", "content": "I am looking for a one word label which would describe my email conversation." },
-            { "role": "user", "content": "Can you answer me in one world only." },
-            { "role": "assistant", "content": "Sure, please provide me all the emails in the conversation." },
+            { "role": "user", "content": "I am a salesperson and I am looking for a one-word label that would describe the email conversation I will provide to you. And can you answer me with the label only, please?" },
+            { "role": "assistant", "content": "Sure! Please provide the email conversation, and I'll provide you with a one-word label." },
         ] as ChatCompletionRequestMessage[]
 
         // Beacuse we have all emails in one file, we need to filter all emails from one conversation manually

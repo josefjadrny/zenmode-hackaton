@@ -7,7 +7,7 @@ export const summaryFromAccount = async (): Promise<string> => {
 
     try {
         const messages = [
-            { "role": "user", "content": "I need to summarize an my email account based on the conversation." },
+            { "role": "user", "content": "I am a salesperson and I need to summarize my email account based on the conversations." },
             { "role": "assistant", "content": "Sure, please provide me all the emails related to your account." },
         ] as ChatCompletionRequestMessage[]
 
