@@ -1,14 +1,14 @@
 import { openai } from "../openai"
 import emails from "../emails.json"
 
-export const translateToCzech = async (): Promise<string> => {
+export const translateToEstonian = async (): Promise<string> => {
     let result = ''
 
     try {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [
-                { "role": "user", "content": "I need to translate an email conversation into the Czech language." },
+                { "role": "user", "content": "I need to translate an email conversation into the Estonian language." },
                 { "role": "assistant", "content": "Sure, please provide me with the email." },
                 { "role": "user", "content": emails[6].body },
             ]

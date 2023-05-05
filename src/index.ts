@@ -2,18 +2,18 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 import Fastify from 'fastify'
+import emails from "./emails.json"
 import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
 import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
 import { emailListCategorisation } from './scenario/emailsCategorisation'
-import { translateToLanguage } from './scenario/translateToLanguage'
 import { extractActionsDetails } from './scenario/extractActions'
 import { urgencyType } from './scenario/urgencyType'
-
-import emails from "./emails.json"
 import { rephrase } from './scenario/rephrase'
 import { makeItShorter } from './scenario/makeItShorter'
 import { suggestLabelFromThread } from './scenario/suggestLabelFromThread'
+import { translateToCzech } from './scenario/translateToLanguage'
+import { translateToEstonian } from './scenario/translateToEstonian'
 
 const scenarios = [
   {
@@ -45,8 +45,12 @@ const scenarios = [
     exec: emailListCategorisation,
   },
   {
+    name: 'Translate to Estonian language',
+    exec: translateToEstonian,
+  },
+  {
     name: 'Translate to Czech language',
-    exec: translateToLanguage,
+    exec: translateToCzech,
   },
   {
     name: 'Extract suggested activities',
