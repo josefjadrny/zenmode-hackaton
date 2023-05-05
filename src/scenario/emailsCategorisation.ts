@@ -11,7 +11,7 @@ const exec = async (): Promise<string> => {
         {
           role: "user",
           content:
-            "Classify emails based on pre-defined topics for classify emails based on there relation to sales process: lead, prospect, new request, ongoing customer, advertisment, spam, fraud, transactional, internal, deal, sales potential",
+            "Classify emails based on pre-defined categories for classifying emails based on their relation to the sales process: lead, prospect, new request, ongoing customer, advertisment, spam, fraud, transactional, internal, deal, sales potential. Can you answer me with the category only, please?",
         },
         {
           role: "assistant",
