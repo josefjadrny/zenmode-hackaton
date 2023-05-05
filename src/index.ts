@@ -3,6 +3,7 @@ dotenv.config()
 
 import Fastify from 'fastify'
 import emails from "./emails.json"
+import templates from "./templates.json"
 import { summaryFromLastEmail } from './scenario/summaryFromLastEmail'
 import { summaryFromThread } from './scenario/summaryFromThread'
 import { summaryFromAccount } from './scenario/summaryFromAccount'
@@ -14,6 +15,8 @@ import { makeItShorter } from './scenario/makeItShorter'
 import { suggestLabelFromThread } from './scenario/suggestLabelFromThread'
 import { translateToCzech } from './scenario/translateToLanguage'
 import { translateToEstonian } from './scenario/translateToEstonian'
+import { suggestTemplate } from './scenario/suggestTemplate'
+import { suggestTemplateFromTemplates } from './scenario/suggestTemplateFromTemplates'
 
 const scenarios = [
   {
@@ -60,6 +63,14 @@ const scenarios = [
     name: 'Prioritise this email by urgency',
     exec: urgencyType,
   },
+  {
+    name: 'Create a template (for Ted from MCG selling motor spare parts)',
+    exec: suggestTemplate,
+  },
+  {
+    name: 'Suggest a template for email',
+    exec: suggestTemplateFromTemplates,
+  },
 ]
 
 const fastify = Fastify({
@@ -73,6 +84,8 @@ fastify.get('/', async (request, reply) => {
   <h1>ZEN-MODE playground</h1>
   <h2>Emails</h2>
   <textarea style="width: 100%; height: 500px;">${JSON.stringify(emails, null, 2)}</textarea>
+  <h2>Templates</h2>
+  <textarea style="width: 100%; height: 300px;">${JSON.stringify(templates, null, 2)}</textarea>
   ${scenarios.map(scenario => '<h2>' + scenario.name + '</h2><p><button onClick="this.disabled=true;fetch(\'/execute?scenarioName='+scenario.name+'\').then(response => response.text()).then(text => {var div = document.getElementById(\''+scenario.name+'\');div.innerHTML = text;this.disabled=false;})")>Generate</button></p><p id="'+scenario.name+'"><p></p>')}
   </body>
   </html>`
