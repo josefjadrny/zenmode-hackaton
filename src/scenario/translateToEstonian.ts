@@ -11,7 +11,7 @@ const exec = async (): Promise<string> => {
         {
           role: "user",
           content:
-            "I need to translate an email conversation into the Estonian language.",
+            "I need to make this email funnier and translate it into the Estonian language.",
         },
         {
           role: "assistant",

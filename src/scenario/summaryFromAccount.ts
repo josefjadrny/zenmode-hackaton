@@ -10,7 +10,7 @@ const exec = async (): Promise<string> => {
       {
         role: "user",
         content:
-          "I am a salesperson and I need to summarize my email account based on the conversations.",
+          "I am a salesperson and I need to summarize all information connected to helena.jason@carsmotors.com.",
       },
       {
         role: "assistant",
@@ -26,7 +26,7 @@ const exec = async (): Promise<string> => {
           email.from === "ted.dillan@mcg.com" ? "me" : email.from
         } to ${email.to === "ted.dillan@mcg.com" ? "me" : email.to}: ${
           email.body
-        }`,
+        } Please take as an additional input for summary that I've sent Helena 3 emails already and planned to send 1 follow up tomorrow. And there is also my colleague Dillan Real has called her yesterday. Mention that Estimated value of the deal with Helena's comapny is $120000. Please provide summary for email conversations with Helena and additional information in a compact form with bullet points `,
       });
     });
 
