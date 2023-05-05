@@ -24,9 +24,9 @@ export const scenarios = [
     input: summaryFromThread.getInput(),
   },
   {
-    name: "Make a summary from account",
+    name: "Make a summary for the whole account",
     exec: summaryFromAccount.exec,
-    input: summaryFromAccount.getInput(),
+    input: `${summaryFromAccount.getInput()} and contact related data`,
   },
   {
     name: "Reprahse an email",
@@ -39,7 +39,7 @@ export const scenarios = [
     input: makeItShorter.getInput(),
   },
   {
-    name: "Suggest a label from thread",
+    name: "Suggest a label for the thread",
     exec: suggestLabelFromThread.exec,
     input: suggestLabelFromThread.getInput(),
   },
@@ -49,7 +49,7 @@ export const scenarios = [
     input: emailListCategorisation.getInput(),
   },
   {
-    name: "Translate to Estonian language",
+    name: "Translate to Estonian language and make it funny",
     exec: translateToEstonian.exec,
     input: translateToEstonian.getInput(),
   },

@@ -25,7 +25,7 @@ const exec = async (): Promise<string> => {
         {
           role: "user",
           content:
-            "If yes, extract actions details in json format with specifying action 'type', 'date' (in format MM/DD/YYYY), 'time' and'timezone' if applicable",
+            "If yes, extract actions details in json format with specifying action 'type', 'date' (in format MM/DD/YYYY), 'time' and'timezone' if applicable. Provide only json result in reply",
         },
       ],
     });

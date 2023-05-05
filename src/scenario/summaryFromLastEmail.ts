@@ -11,7 +11,7 @@ const exec = async (): Promise<string> => {
         {
           role: "user",
           content:
-            "I am a salesperson and I need to summarize an email into one sentence.",
+            "I am a salesperson and I need to summarize an email into one short sentence.",
         },
         {
           role: "assistant",
