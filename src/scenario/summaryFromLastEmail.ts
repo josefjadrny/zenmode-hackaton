@@ -1,7 +1,7 @@
 import { openai } from "../openai";
 import emails from "../emails.json";
 
-export const summaryFromLastEmail = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -46,6 +46,11 @@ export const summaryFromLastEmail = async (): Promise<string> => {
   return result;
 };
 
-export const getInput = (): string => {
+const getInput = (): string => {
   return emails[6].body;
+};
+
+export const summaryFromLastEmail = {
+  exec,
+  getInput,
 };

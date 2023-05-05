@@ -1,8 +1,6 @@
 import { openai } from "../openai";
-import emails from "../emails.json";
-import { time } from "console";
 
-export const suggestTemplate = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -11,8 +9,7 @@ export const suggestTemplate = async (): Promise<string> => {
       messages: [
         {
           role: "user",
-          content:
-            "I am a salesperson Ted Dillan in a company called MCG that specializes in selling spare parts for motors. Can you generate a good email template for me, please?",
+          content: `${getInput}. Can you generate a good email template for me, please?`,
         },
       ],
     });
@@ -29,4 +26,13 @@ export const suggestTemplate = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return "I am a salesperson Ted Dillan in a company called MCG that specializes in selling spare parts for motors";
+};
+
+export const suggestTemplate = {
+  exec,
+  getInput,
 };

@@ -3,7 +3,7 @@ import emails from "../emails.json";
 import templates from "../templates.json";
 import { ChatCompletionRequestMessage } from "openai";
 
-export const suggestTemplateFromTemplates = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -12,7 +12,7 @@ export const suggestTemplateFromTemplates = async (): Promise<string> => {
         role: "user",
         content:
           "I am a salesperson Ted Dillan in a company called MCG that specializes in selling spare parts for motors and I have I just received this email: " +
-          emails[2].body,
+          getInput(),
       },
       { role: "user", content: "I have this templates:" },
     ] as ChatCompletionRequestMessage[];
@@ -47,4 +47,13 @@ export const suggestTemplateFromTemplates = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return emails[2].body;
+};
+
+export const suggestTemplateFromTemplates = {
+  exec,
+  getInput,
 };

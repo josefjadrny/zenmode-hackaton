@@ -2,7 +2,7 @@ import { summaryFromLastEmail } from "./scenario/summaryFromLastEmail";
 import { summaryFromThread } from "./scenario/summaryFromThread";
 import { summaryFromAccount } from "./scenario/summaryFromAccount";
 import { emailListCategorisation } from "./scenario/emailsCategorisation";
-import { extractActionsDetails } from "./scenario/extractActions";
+import { extractActions } from "./scenario/extractActions";
 import { urgencyType } from "./scenario/urgencyType";
 import { rephrase } from "./scenario/rephrase";
 import { makeItShorter } from "./scenario/makeItShorter";
@@ -15,54 +15,67 @@ import { suggestTemplateFromTemplates } from "./scenario/suggestTemplateFromTemp
 export const scenarios = [
   {
     name: "Make a summary from last email",
-    exec: summaryFromLastEmail,
+    exec: summaryFromLastEmail.exec,
+    input: summaryFromLastEmail.getInput(),
   },
   {
     name: "Make a summary from thread",
-    exec: summaryFromThread,
+    exec: summaryFromThread.exec,
+    input: summaryFromThread.getInput(),
   },
   {
     name: "Make a summary from account",
-    exec: summaryFromAccount,
+    exec: summaryFromAccount.exec,
+    input: summaryFromAccount.getInput(),
   },
   {
     name: "Reprahse an email",
-    exec: rephrase,
+    exec: rephrase.exec,
+    input: rephrase.getInput(),
   },
   {
     name: "Shorten an email",
-    exec: makeItShorter,
+    exec: makeItShorter.exec,
+    input: makeItShorter.getInput(),
   },
   {
     name: "Suggest a label from thread",
-    exec: suggestLabelFromThread,
+    exec: suggestLabelFromThread.exec,
+    input: suggestLabelFromThread.getInput(),
   },
   {
     name: "Suggest an email category",
-    exec: emailListCategorisation,
+    exec: emailListCategorisation.exec,
+    input: emailListCategorisation.getInput(),
   },
   {
     name: "Translate to Estonian language",
-    exec: translateToEstonian,
+    exec: translateToEstonian.exec,
+    input: translateToEstonian.getInput(),
   },
   {
     name: "Translate to Czech language",
-    exec: translateToCzech,
+    exec: translateToCzech.exec,
+    input: translateToCzech.getInput(),
   },
   {
     name: "Extract suggested activities",
-    exec: extractActionsDetails,
+    exec: extractActions.exec,
+    input: extractActions.getInput(),
   },
   {
     name: "Prioritise this email by urgency",
-    exec: urgencyType,
+    exec: urgencyType.exec,
+    input: urgencyType.getInput(),
   },
   {
     name: "Create a template (for Ted from MCG selling motor spare parts)",
-    exec: suggestTemplate,
+    exec: suggestTemplate.exec,
+    input: suggestTemplate.getInput(),
   },
   {
     name: "Suggest a template for email (from list of available templates)",
-    exec: suggestTemplateFromTemplates,
+    exec: suggestTemplateFromTemplates.exec,
+    input: suggestTemplateFromTemplates.getInput(),
   },
 ];

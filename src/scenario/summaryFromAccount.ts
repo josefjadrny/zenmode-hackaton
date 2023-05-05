@@ -2,7 +2,7 @@ import { openai } from "../openai";
 import emails from "../emails.json";
 import { ChatCompletionRequestMessage } from "openai";
 
-export const summaryFromAccount = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -47,4 +47,12 @@ export const summaryFromAccount = async (): Promise<string> => {
   }
 
   return result;
+};
+const getInput = (): string => {
+  return "All emails (check above)";
+};
+
+export const summaryFromAccount = {
+  exec,
+  getInput,
 };

@@ -1,7 +1,7 @@
 import { openai } from "../openai";
 import emails from "../emails.json";
 
-export const urgencyType = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -19,7 +19,7 @@ export const urgencyType = async (): Promise<string> => {
         },
         {
           role: "user",
-          content: emails[10].body + "email was send" + emails[10].time,
+          content: getInput(),
         },
       ],
     });
@@ -36,4 +36,13 @@ export const urgencyType = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return emails[10].body + "email was send" + emails[10].time;
+};
+
+export const urgencyType = {
+  exec,
+  getInput,
 };

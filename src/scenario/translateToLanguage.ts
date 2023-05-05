@@ -1,7 +1,7 @@
 import { openai } from "../openai";
 import emails from "../emails.json";
 
-export const translateToCzech = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -17,7 +17,7 @@ export const translateToCzech = async (): Promise<string> => {
           role: "assistant",
           content: "Sure, please provide me with the email.",
         },
-        { role: "user", content: emails[6].body },
+        { role: "user", content: getInput() },
       ],
     });
 
@@ -33,4 +33,13 @@ export const translateToCzech = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return emails[6].body;
+};
+
+export const translateToCzech = {
+  exec,
+  getInput,
 };

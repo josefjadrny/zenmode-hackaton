@@ -2,7 +2,7 @@ import { openai } from "../openai";
 import emails from "../emails.json";
 import { ChatCompletionRequestMessage } from "openai";
 
-export const summaryFromThread = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -53,4 +53,13 @@ export const summaryFromThread = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return "All emails sent from/to helena.jason@carsmotors.com (check above)";
+};
+
+export const summaryFromThread = {
+  exec,
+  getInput,
 };

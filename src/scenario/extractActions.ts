@@ -2,7 +2,7 @@ import { openai } from "../openai";
 import emails from "../emails.json";
 import { time } from "console";
 
-export const extractActionsDetails = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -20,7 +20,7 @@ export const extractActionsDetails = async (): Promise<string> => {
         },
         {
           role: "user",
-          content: emails[10].body + " email was send " + emails[10].time,
+          content: getInput(),
         },
         {
           role: "user",
@@ -42,4 +42,13 @@ export const extractActionsDetails = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return emails[10].body + " email was send " + emails[10].time;
+};
+
+export const extractActions = {
+  exec,
+  getInput,
 };

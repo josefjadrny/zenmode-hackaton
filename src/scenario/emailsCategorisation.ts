@@ -1,7 +1,7 @@
 import { openai } from "../openai";
 import emails from "../emails.json";
 
-export const emailListCategorisation = async (): Promise<string> => {
+const exec = async (): Promise<string> => {
   let result = "";
 
   try {
@@ -17,7 +17,7 @@ export const emailListCategorisation = async (): Promise<string> => {
           role: "assistant",
           content: "Sure, please provide me with the email conversation.",
         },
-        { role: "user", content: emails[9].body },
+        { role: "user", content: getInput() },
       ],
     });
 
@@ -32,4 +32,13 @@ export const emailListCategorisation = async (): Promise<string> => {
   }
 
   return result;
+};
+
+const getInput = (): string => {
+  return emails[9].body;
+};
+
+export const emailListCategorisation = {
+  exec,
+  getInput,
 };

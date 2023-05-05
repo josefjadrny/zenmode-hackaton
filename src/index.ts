@@ -15,30 +15,34 @@ fastify.get("/", async (request, reply) => {
   <html>
   <body>
   <h1>ZEN-MODE playground</h1>
-  <h2>Emails</h2>
+  <h2>User's emails</h2>
   <textarea style="width: 100%; height: 500px;">${JSON.stringify(
     emails,
     null,
     2
   )}</textarea>
-  <h2>Templates</h2>
+  <h2>User's templates</h2>
   <textarea style="width: 100%; height: 300px;">${JSON.stringify(
     templates,
     null,
     2
   )}</textarea>
-  ${scenarios.map(
-    (scenario) =>
-      "<h2>" +
-      scenario.name +
-      "</h2><p><button onClick=\"this.disabled=true;fetch('/execute?scenarioName=" +
-      scenario.name +
-      "').then(response => response.text()).then(text => {var div = document.getElementById('" +
-      scenario.name +
-      '\');div.innerHTML = text;this.disabled=false;})")>Generate</button></p><p id="' +
-      scenario.name +
-      '"><p></p>'
-  )}
+  ${scenarios
+    .map(
+      (scenario) =>
+        "<h2>" +
+        scenario.name +
+        "</h2><p><strong>Input data</strong></p><p>" +
+        scenario.input +
+        '</p><p><button style="padding: 5px;" onClick="this.disabled=true;fetch(\'/execute?scenarioName=' +
+        scenario.name +
+        "').then(response => response.text()).then(text => {var div = document.getElementById('" +
+        scenario.name +
+        '\');div.innerHTML = text;this.disabled=false;})")>Generate</button></p><p id="' +
+        scenario.name +
+        '"><p></p>'
+    )
+    .join("")}
   </body>
   </html>`;
 
