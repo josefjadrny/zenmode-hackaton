@@ -40,7 +40,7 @@ fastify.get("/", async (request, reply) => {
         scenario.name +
         '\');div.innerHTML = text;this.disabled=false;})")>Generate</button></p><p id="' +
         scenario.name +
-        '"><p></p>'
+        '"></p><hr>'
     )
     .join("")}
   </body>
