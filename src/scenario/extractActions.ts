@@ -11,7 +11,7 @@ export const extractActionsDetails = async (): Promise<string> => {
             messages: [
                 { "role": "user", "content": "Any action needed mentioned in this email? Types of actions we are looking for is: meeting, call, demo sheduling, follow-up set up, to-do point" },
                 { "role": "assistant", "content": "Sure, please provide me with the email." },
-                { "role": "user", "content": emails[10].body + 'email was send' + emails[10].timestamp },
+                { "role": "user", "content": emails[10].body + ' email was send ' + emails[10].time },
                 { "role": "user", "content": "If yes, extract actions details in json format with specifying action 'type', 'date' (in format MM/DD/YYYY), 'time' and'timezone' if applicable"},
             ]
         })
