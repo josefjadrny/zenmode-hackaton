@@ -2,7 +2,7 @@
   "name": "zenmode-hackaton",
   "version": "1.0.0",
   "main": "index.ts",
-  "description": "",
+  "description": "This project proves some ai scenarios for Pipedrive's internal hackathon.",
   "scripts": {
     "start": "tsnd --respawn src/index.ts",
     "pretty": "npx prettier --write ."
