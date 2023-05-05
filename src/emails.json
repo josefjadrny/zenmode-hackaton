@@ -63,15 +63,17 @@
         "body": "Hey Ted, thanks for reaching out to us, but at this time we are not interested in any kind of cooperation. Have a nice day."
     },
     {
-        "sender": "John Doe",
+        "to": "ted.dillan@mcg.com",
+        "from": "John Doe",
         "subject": "Meeting Request",
         "body": "Hi there, I'd like to schedule a meeting with you next week to discuss your company's needs. Please let me know if that works for you. Best regards, John Doe.",
-        "timestamp": "2023-04-30T13:00:00Z"
+        "time": "2023-04-30,13:00:00"
     },
     {
-        "sender": "Jane Smith",
+        "to": "ted.dillan@mcg.com",
+        "from": "Jane Smith",
         "subject": "Sales CRM Inquiry and Demo Request",
         "body": "Dear Pipedrive Team,/n/nI am writing to inquire about your sales CRM system. My name is Jane Smith and I am the Sales Manager at XYZ Corporation. We are in the process of evaluating different sales CRM solutions and would like to learn more about your product./n/nSpecifically, we are looking for a CRM system that can help us manage our leads and opportunities, track our sales pipeline, and provide detailed analytics and reporting. We also need a system that can integrate with our existing tools, including our marketing automation platform and customer support software./n/nI would like to schedule a demo of your sales CRM system as soon as possible. I am available next Wednesday at 2:00 pm EST for a call or online meeting. /nOr you can call me tomorrow morning, at 9:30am/n Please let me know if this time works for you or if we need to find another time./n/nThank you for your time and I look forward to hearing back from you soon./nBest regards,/nJane Smith/nSales Manager/nXYZ Corporation/n+420606460555",
-        "timestamp": "2023-04-30T13:00:00Z"
+        "time": "2023-04-30,13:00:00"
     }
 ]
