@@ -68,7 +68,7 @@ const scenarios = [
     exec: suggestTemplate,
   },
   {
-    name: 'Suggest a template for email',
+    name: 'Suggest a template for email (from list of available templates)',
     exec: suggestTemplateFromTemplates,
   },
 ]
