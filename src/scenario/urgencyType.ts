@@ -39,7 +39,7 @@ const exec = async (): Promise<string> => {
 };
 
 const getInput = (): string => {
-  return emails[10].body + "email was send" + emails[10].time;
+  return emails[10].body + " email was send " + emails[10].time;
 };
 
 export const urgencyType = {
